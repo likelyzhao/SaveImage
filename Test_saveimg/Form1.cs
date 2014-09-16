@@ -24,50 +24,38 @@ namespace Test_saveimg
     public partial class Form1 : Form
     {
         public Form1()
-        {
-            ;
+        {            
             InitializeComponent();
         }
 
-      //  System.Delegate Cinvokes(string str);
-     //   delegage void Cinvokes(string str);
         public void Draw(object parain)
         {
-            this.Refresh();
-//             Control obj;
-//             obj = new progressBar1();
-//             MethodInfo methodinfo=obj.GetType().GetMethod("refresh",new Type[]{typeof(string)});
-// 
-//             if (methodinfo != null)
-//                 methodinfo.Invoke(obj, new object[] {});
-// 
-//       //      Cinvokes ivk=new Cinvokes(Updata);
-//         //    this.BeginInvoke(ivk, new object[] {"参数" });
-               
+            this.Refresh();               
         }
 
-//         private void Updata(string str)
-//         {
-//               text.Text=str; 
-//         }
+
 
 
         private void button1_Click(object sender, EventArgs e)
         {
+            OpenFileDialog DigOpen = new OpenFileDialog();
+            DigOpen.ShowDialog();            
+            string Path = DigOpen.FileName;
+            if (Path.Length == 0)
+            {
+                MessageBox.Show("Please select Txt file");
+                return;
+            }
+
+       //     MessageBox.Show(Path);
 
             //downloading image from urls
 
             WebClient wc = new WebClient();// key member of downloading
-             Thunder_SDK.XLInitDownloadEngine();
+            Thunder_SDK.XLInitDownloadEngine();        
 
-
-            //    ThunderAgentLib.AgentClass agent = new ThunderAgentLib.AgentClass();//创建对象
-
-            //       wc.
             MemoryStream ms;
-            StreamReader m_StreamReader = new StreamReader("1.txt");// open the txt file with C# form
-            // 没有用之前的fopen了
-           
+            StreamReader m_StreamReader = new StreamReader(Path);// open the txt file with C# form     
 
             while (true)
             {
@@ -196,29 +184,29 @@ namespace Test_saveimg
 
           
 
-                //                  while(true)
-                //                  {
-                //                       String status = agent.GetTaskInfo(parts[2],"Status");
-                //                      if ((string.Compare(status,"failed"))==0||(string.Compare(status,"success"))==0)
-                //                      {
-                //                          break;
-                //                      }
-                //                  }
+    //                  while(true)
+    //                  {
+    //                       String status = agent.GetTaskInfo(parts[2],"Status");
+    //                      if ((string.Compare(status,"failed"))==0||(string.Compare(status,"success"))==0)
+    //                      {
+    //                          break;
+    //                      }
+    //                  }
 
-                //                  ImgSavePath += parts[0] + "_" + parts[1] + ".jpg";// path of saving image
-                // 
-                //                  try
-                //                  {
-                //                      wc.DownloadFile(parts[2], ImgSavePath); // using the DownloadFile function instead of DownloadData
-                //                //      ms = new MemoryStream(wc.DownloadData(parts[2]));
-                //                //      Image img = Image.FromStream(ms);
-                //                //      img.Save(ImgSavePath); 
-                //                  }
-                //                  catch (System.Exception ex)
-                //                  {
-                //                   //    MessageBox.Show(ex.Message + parts[2]);// catch the exception when the image is invalid
-                // 
-                //                  }
+    //                  ImgSavePath += parts[0] + "_" + parts[1] + ".jpg";// path of saving image
+    // 
+    //                  try
+    //                  {
+    //                      wc.DownloadFile(parts[2], ImgSavePath); // using the DownloadFile function instead of DownloadData
+    //                //      ms = new MemoryStream(wc.DownloadData(parts[2]));
+    //                //      Image img = Image.FromStream(ms);
+    //                //      img.Save(ImgSavePath); 
+    //                  }
+    //                  catch (System.Exception ex)
+    //                  {
+    //                   //    MessageBox.Show(ex.Message + parts[2]);// catch the exception when the image is invalid
+    // 
+    //                  }
 
 
 
